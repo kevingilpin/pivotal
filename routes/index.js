@@ -8,7 +8,7 @@ module.exports = function(passport){
   /* GET login page. */
   router.get('/', function(req, res) {
     if (req.isAuthenticated()) {
-      return res.redirect(req.user.company + "/home");
+      return res.redirect(req.user.company);
     } else {
       req.session.destroy(function() {
         return res.render("login", { layout: null });
@@ -21,7 +21,7 @@ module.exports = function(passport){
       failureRedirect: '/',
       failureFlash : true 
     }), function(req, res) {
-      res.redirect(req.user.company + "/home");
+      res.redirect(req.user.company);
     }
   );
  

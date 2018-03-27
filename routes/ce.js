@@ -13,7 +13,7 @@ const isAuthenticated = function (req, res, next) {
 }
 
 /* GET Home Page */
-router.get('/home', isAuthenticated, function(req, res){
+router.get('/', isAuthenticated, function(req, res){
   res.render('ce/home', {company:'Commissions Early'}); 
 });
   

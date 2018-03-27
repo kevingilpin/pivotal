@@ -1,18 +1,24 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const exphbs = require("express-handlebars");
 const passport = require('passport');
+const passportService = require('./service/passport.js');
 const expressSession = require('express-session');
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(expressSession);
 const credentials = require('./config/credentials');
+require('./service/database');
 
-var app = express();
+const indexRouter = require('./routes/index')(passport);
+const ceRouter = require('./routes/ce');
+
+const app = express();
 
 // set up handlebars view engine
-var exphbs = require("express-handlebars").create({
+const hbs = exphbs.create({
   defaultLayout: "dashboard",
   extname: '.hbs',
   helpers: {
@@ -23,13 +29,10 @@ var exphbs = require("express-handlebars").create({
     }
   }
 });
-app.engine(".hbs", exphbs.engine);
+app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
 app.set('views', path.join(__dirname, 'views'));
 
-
-//Mongo database
-require('./service/database')
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -49,14 +52,8 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Require in all passport service
-const passportService = require('./service/passport.js')
-
 // Routers
-var indexRouter = require('./routes/index')(passport);
 app.use('/', indexRouter);
-
-var ceRouter = require('./routes/ce');
 app.use('/ce', ceRouter);
 
 // catch 404 and forward to error handler
