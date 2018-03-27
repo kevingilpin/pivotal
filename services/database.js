@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const MONGO_URI = require('./config/credentials.js');
+const MONGO = require('../config/credentials').mongo;
 
-mongoose.connect(MONGO_URI);
+mongoose.connect(MONGO.development.connectionString);
 
 const db = mongoose.connection;
 db.on("error", error => console.log("Database Error:", error));

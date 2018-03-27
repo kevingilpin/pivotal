@@ -7,16 +7,23 @@ module.exports = function(passport){
  
   /* GET login page. */
   router.get('/', function(req, res) {
-    // Display the Login page with any flash message, if any
-    res.render('index', { message: req.flash('message') });
+    if (req.isAuthenticated()) {
+      return res.redirect(req.user.company + "/home");
+    } else {
+      req.session.destroy(function() {
+        return res.render("login", { layout: null });
+      });
+    }
   });
  
   /* Handle Login POST */
   router.post('/login', passport.authenticate('login', {
-    successRedirect: '/home',
-    failureRedirect: '/',
-    failureFlash : true 
-  }));
+      failureRedirect: '/',
+      failureFlash : true 
+    }), function(req, res) {
+      res.redirect(req.user.company + "/home");
+    }
+  );
  
   /* GET Registration Page */
   router.get('/signup', function(req, res){
@@ -25,12 +32,12 @@ module.exports = function(passport){
  
   /* Handle Registration POST */
   router.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/home',
+    successRedirect: 'ce/home',
     failureRedirect: '/signup',
     failureFlash : true 
   }));
 
-  router.get('/signout', function(req, res) {
+  router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   });

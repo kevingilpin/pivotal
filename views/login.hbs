@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Pivotal Insights</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body>
+<!-- particles.js container -->
+<div id="particles-js">
+  <!-- login form -->
+ <div class="container">
+
+   <h1 class="title">Pivotal Insights [beta]</h1>
+   
+      <div id="login">
+
+        <form class="loginForm" role="form"
+        action="/login" method="POST">
+
+          <fieldset class="clearfix">
+
+            <p><span class="fontawesome-user"></span><input type="text" id="username" name="username" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p><span class="fontawesome-lock"></span><input type="password" id="password" name="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+            <p><input type="submit" value="Sign In"></p>
+
+          </fieldset>
+
+            {{#if message}}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error:</strong> {{message}}
+                </div>
+            {{/if}}
+
+        </form>
+
+        <p>Not a customer yet? <a href="#" class="blue">Learn more</a><span class="fontawesome-arrow-right"></span></p>
+
+      </div> <!-- end login -->
+
+    </div>
+</div>
+
+
+<!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+<script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+<script  src="js/index.js"></script>
+
+
+
+</body>
+</html>

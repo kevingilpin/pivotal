@@ -7,20 +7,15 @@ router.use(flash());
 // if the user is authenticated
 const isAuthenticated = function (req, res, next) {
   if (req.isAuthenticated() && req.user.company === 'ce') {
-    console.log(req.user);
-    console.log(req.session);
     return next();
   }
   res.send({access: 'denied'});
 }
 
-module.exports = function(passport){
- 
-  /* GET Home Page */
-  router.get('/home', isAuthenticated, function(req, res){
-    res.render('home', { user: req.user });
-  });
+/* GET Home Page */
+router.get('/home', isAuthenticated, function(req, res){
+  res.render('ce/home', {company:'Commissions Early'}); 
+});
   
  
-  return router;
-}
+module.exports = router;
