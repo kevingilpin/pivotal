@@ -11,7 +11,7 @@ module.exports = function(passport){
       return res.redirect(req.user.company);
     } else {
       req.session.destroy(function() {
-        return res.render("login", { layout: null });
+        return res.render("signin", { layout: null });
       });
     }
   });
