@@ -57,8 +57,8 @@ button.close {
   font-weight: 400; }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-  font-weight: 300;
-  margin: 30px 0 15px; }
+  color: grey;
+  font-weight: 500; }
 
 h1, .h1 {
   font-size: 52px; }
@@ -258,9 +258,9 @@ body > .navbar-collapse {
     .sidebar .nav li > a,
     body > .navbar-collapse .nav li > a {
       color: #FFFFFF;
-      margin: 5px 15px;
+      margin: 5px 0px;
       opacity: .86;
-      border-radius: 4px;
+      border-radius: 6px 0px 0px 6px;
       display: block; }
     .sidebar .nav li:hover > a,
     body > .navbar-collapse .nav li:hover > a {
@@ -268,9 +268,9 @@ body > .navbar-collapse {
       opacity: 1; }
     .sidebar .nav li.active > a,
     body > .navbar-collapse .nav li.active > a {
-      color: #FFFFFF;
+      color: #00b9a1;
       opacity: 1;
-      background: rgba(255, 255, 255, 0.23); }
+      background: rgb(242, 244, 245); }
     .sidebar .nav li.separator,
     body > .navbar-collapse .nav li.separator {
       margin: 15px 0;
@@ -437,14 +437,14 @@ body > .navbar-collapse {
     background-size: 150% 150%; }
 
 .main-panel {
-  background: rgba(203, 203, 210, 0.15);
+  background: rgb(242, 244, 245);
   position: relative;
   z-index: 2;
   float: right;
   width: calc(100% - 260px);
   min-height: 100%; }
   .main-panel > .content {
-    padding: 30px 15px;
+    padding: 30px 30px;
     min-height: calc(100% - 123px); }
   .main-panel > .footer {
     border-top: 1px solid #e7e7e7; }
@@ -1548,8 +1548,8 @@ body > .navbar-collapse {
   overflow: visible; }
 
 .card {
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  border-radius: 3px;
+  border: 1px solid rgb(207, 215, 217);
   background-color: #FFFFFF;
   margin-bottom: 30px; }
   .card .image {
@@ -1608,8 +1608,11 @@ body > .navbar-collapse {
     text-transform: uppercase; }
   .card .title {
     margin: 0;
-    color: #333333;
-    font-weight: 300; }
+    color: rgb(33, 50, 59);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    justify-content: space-between; }
   .card .avatar {
     width: 30px;
     height: 30px;
@@ -1625,9 +1628,9 @@ body > .navbar-collapse {
     line-height: 30px; }
     .card .footer .legend {
       padding: 5px 0; }
-    .card .footer hr {
-      margin-top: 5px;
-      margin-bottom: 5px; }
+  .card hr {
+    margin-top: 5px;
+    margin-bottom: 5px; }
   .card .stats {
     color: #a9a9a9; }
   .card .footer div {

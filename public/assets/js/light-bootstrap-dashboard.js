@@ -90,16 +90,15 @@ lbd = {
 
             $navbar.attr('data-color',sidebar_color);
 
+            // add the content from the sidebar to the right menu
+            content_buff = $sidebar.find('.nav').html();
+            ul_content = ul_content + content_buff;
+
             //add the content from the regular header to the right menu
             $navbar.children('ul').each(function(){
                 content_buff = $(this).html();
                 ul_content = ul_content + content_buff;
             });
-
-            // add the content from the sidebar to the right menu
-            content_buff = $sidebar.find('.nav').html();
-            ul_content = ul_content + content_buff;
-
 
             ul_content = '<div class="sidebar-wrapper">' +
                             '<ul class="nav navbar-nav">' +

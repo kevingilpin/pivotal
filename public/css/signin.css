@@ -23,7 +23,6 @@
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
-
 body {
   background: #2c3338;
   color: #606468;
@@ -32,7 +31,6 @@ body {
   overflow-y:auto !important;
   overflow-x:hidden !important;
 }
-
 .container {
   left: 50%;
   position:absolute;
@@ -41,7 +39,6 @@ body {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
 .clearfix {
   *zoom: 1;
 }
@@ -92,7 +89,6 @@ p {
   padding: 0;
   -webkit-appearance: none;
 }
-
 .form-signin input[type="text"], input[type="password"] {
   background-color: #fff;
   border-radius: 0px 3px 3px 0px;
@@ -114,26 +110,21 @@ p {
   width: 280px;
   font-size: 14px;
 }
-
 .form-signin button[type="submit"]:hover {
   background-color: #10cfd0;
   cursor: pointer;
 }
-
 .form-signin > p {
   text-align: center;
   color: #fff;
 }
-
 .form-signin > p span {
   padding-left: 5px;
 }
-
 a, a:hover, a:active, a:visited {
   color: #099798;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }

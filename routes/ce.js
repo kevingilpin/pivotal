@@ -17,5 +17,9 @@ router.get('/', isAuthenticated, function(req, res){
   res.render('ce/home', {company:'Commissions Early'}); 
 });
   
+/* GET Viz Page */
+router.get('/dashboard', isAuthenticated, function(req, res){
+  res.render('ce/vis', {company:'Commissions Early'}); 
+});
  
 module.exports = router;
