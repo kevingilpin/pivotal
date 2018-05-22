@@ -31,7 +31,7 @@ body {
   overflow-y:auto !important;
   overflow-x:hidden !important;
 }
-.container {
+.shell {
   left: 50%;
   position:absolute;
    top: 50%;
@@ -49,6 +49,7 @@ body {
 .clearfix:after {
   clear: both;
 }
+
 .form-signin {
   max-width: 280px;
   margin: 0 auto;
